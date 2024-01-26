@@ -1,13 +1,13 @@
-package ca.tetervak.multiplicationquiz2;
+package ca.tetervak.multiplicationtrainer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MultiplicationQuiz2Application {
+public class MultiplicationTrainerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MultiplicationQuiz2Application.class, args);
+        SpringApplication.run(MultiplicationTrainerApplication.class, args);
     }
 
 }

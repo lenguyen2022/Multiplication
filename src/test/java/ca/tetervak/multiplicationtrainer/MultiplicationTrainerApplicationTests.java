@@ -1,10 +1,10 @@
-package ca.tetervak.multiplicationquiz2;
+package ca.tetervak.multiplicationtrainer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MultiplicationQuiz2ApplicationTests {
+class MultiplicationTrainerApplicationTests {
 
     @Test
     void contextLoads() {

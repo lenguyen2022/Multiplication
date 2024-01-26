@@ -1,4 +1,4 @@
-package ca.tetervak.multiplicationquiz2.model;
+package ca.tetervak.multiplicationtrainer.domain;
 
 import java.io.Serializable;
 

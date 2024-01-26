@@ -1,7 +1,7 @@
-package ca.tetervak.multiplicationquiz2.controller;
+package ca.tetervak.multiplicationtrainer.controller;
 
-import ca.tetervak.multiplicationquiz2.model.Problem;
-import ca.tetervak.multiplicationquiz2.service.QuizService;
+import ca.tetervak.multiplicationtrainer.domain.Problem;
+import ca.tetervak.multiplicationtrainer.service.ProblemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -9,23 +9,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class QuizController {
 
     private final Logger log = LoggerFactory.getLogger(QuizController.class);
 
-    private final QuizService quizService;
+    private final ProblemService problemService;
 
-    public QuizController(QuizService quizService) {
-        this.quizService = quizService;
+    public QuizController(ProblemService problemService) {
+        this.problemService = problemService;
     }
 
     @RequestMapping(value={"/", "new-problem"})
     public String newProblem(HttpSession session){
         log.trace("newProblem() is called");
-        Problem problem = quizService.getRandomProblem();
+        Problem problem = problemService.getRandomProblem();
         log.debug("problem = " + problem);
         session.setAttribute("problem", problem);
         return "NewProblem";
@@ -71,7 +71,7 @@ public class QuizController {
         } else {
             log.debug("problem = " + problem);
             model.addAttribute("userAnswer", userAnswer);
-            switch (quizService.gradeUserAnswer(problem, userAnswer)) {
+            switch (problemService.gradeUserAnswer(problem, userAnswer)) {
                 case RIGHT_ANSWER:
                     return "RightAnswer";
                 case WRONG_ANSWER:

@@ -1,6 +1,6 @@
-package ca.tetervak.multiplicationquiz2.config;
+package ca.tetervak.multiplicationtrainer.config;
 
-import ca.tetervak.multiplicationquiz2.service.QuizService;
+import ca.tetervak.multiplicationtrainer.service.ProblemService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,7 +10,7 @@ import java.security.SecureRandom;
 public class QuizConfiguration {
 
     @Bean
-    public QuizService provideQuizService(){
-        return new QuizService(new SecureRandom());
+    public ProblemService provideQuizService(){
+        return new ProblemService(new SecureRandom());
     }
 }

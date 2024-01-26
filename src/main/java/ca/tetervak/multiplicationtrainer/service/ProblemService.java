@@ -1,19 +1,19 @@
-package ca.tetervak.multiplicationquiz2.service;
+package ca.tetervak.multiplicationtrainer.service;
 
-import ca.tetervak.multiplicationquiz2.model.Grade;
-import ca.tetervak.multiplicationquiz2.model.Problem;
+import ca.tetervak.multiplicationtrainer.domain.Grade;
+import ca.tetervak.multiplicationtrainer.domain.Problem;
 
 import java.util.Random;
 
-public class QuizService {
+public class ProblemService {
 
     private final Random random;
 
-    public QuizService(Random random) {
+    public ProblemService(Random random) {
         this.random = random;
     }
 
-    public QuizService() {
+    public ProblemService() {
         this(new Random());
     }
 
