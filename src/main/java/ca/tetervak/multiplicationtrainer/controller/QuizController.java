@@ -71,15 +71,11 @@ public class QuizController {
         } else {
             log.debug("problem = " + problem);
             model.addAttribute("userAnswer", userAnswer);
-            switch (problemService.gradeUserAnswer(problem, userAnswer)) {
-                case RIGHT_ANSWER:
-                    return "RightAnswer";
-                case WRONG_ANSWER:
-                    return "WrongAnswer";
-                case INPUT_ERROR:
-                    return "BadInput";
-            }
+            return switch (problemService.gradeUserAnswer(problem, userAnswer)) {
+                case RIGHT_ANSWER -> "RightAnswer";
+                case WRONG_ANSWER -> "WrongAnswer";
+                case INPUT_ERROR -> "BadInput";
+            };
         }
-        throw new AssertionError("should never be reached");
     }
 }
