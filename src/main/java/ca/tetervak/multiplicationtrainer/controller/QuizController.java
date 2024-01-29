@@ -63,7 +63,7 @@ public class QuizController {
             HttpSession session,
             Model model){
         log.trace("checkAnswer() is called");
-        log.debug("userAnswer=" + userAnswer);
+        log.debug("userAnswer = " + userAnswer);
         Problem problem = (Problem) session.getAttribute("problem");
         if (problem == null) {
             log.debug("The session data is not found.");
