@@ -1,5 +1,6 @@
 package ca.tetervak.multiplicationtrainer.controller;
 
+import ca.tetervak.multiplicationtrainer.domain.Addition;
 import ca.tetervak.multiplicationtrainer.domain.Problem;
 import ca.tetervak.multiplicationtrainer.service.ProblemService;
 import org.slf4j.Logger;
@@ -20,6 +21,15 @@ public class QuizController {
 
     public QuizController(ProblemService problemService) {
         this.problemService = problemService;
+    }
+
+    @RequestMapping(value={"/addition", "NewAddition-problem"})
+    public String newAdditionProblem(HttpSession session){
+        log.trace("newProblem() is called");
+        Problem problem = problemService.getRandomProblem(new Addition());
+        log.debug("problem = " + problem);
+        session.setAttribute("problem", problem);
+        return "NewAdditionProblem";
     }
 
     @RequestMapping(value={"/", "new-problem"})
